@@ -225,6 +225,12 @@ class GPSDIfaceExtension(object):
         just after 2.000s to return 2 second. This effect is similar to get gps time on
         the next edge of pps.
         """
+
+        # VPXE320
+        # NMEA messages are not available. Don't bother getting GPS info from GPSd.
+        self._log.info("VPXE320: NMEA messages are not available")
+        return {}
+
         def parse_time(time_str):
             """parse a string of time in format of %Y-%m-%dT%H:%M:%S.%fZ
                return in unit second
@@ -256,6 +262,12 @@ class GPSDIfaceExtension(object):
 
     def get_gps_tpv_sensor(self):
         """Get a TPV response from GPSd as a sensor dict"""
+
+        # VPXE320
+        # NMEA messages are not available. Don't bother getting GPS info from GPSd.
+        self._log.info("VPXE320: NMEA messages are not available")
+        return {}
+
         self._log.trace("Polling GPS TPV results from GPSD")
         # Read responses from GPSD until we get a non-trivial mode
         while True:
@@ -274,6 +286,12 @@ class GPSDIfaceExtension(object):
 
     def get_gps_sky_sensor(self):
         """Get a SKY response from GPSd as a sensor dict"""
+
+        # VPXE320
+        # NMEA messages are not available. Don't bother getting GPS info from GPSd.
+        self._log.info("VPXE320: NMEA messages are not available")
+        return {}
+
         self._log.trace("Polling GPS SKY results from GPSD")
         # Just get the first SKY result
         gps_info = self._gpsd_iface.get_gps_info(resp_class='sky', timeout=15)
@@ -288,6 +306,12 @@ class GPSDIfaceExtension(object):
 
     def get_gps_gpgga_sensor(self):
         """Get GPGGA sensor data by parsing TPV and SKY sensor data"""
+
+        # VPXE320
+        # NMEA messages are not available. Don't bother getting GPS info from GPSd.
+        self._log.info("VPXE320: NMEA messages are not available")
+        return {}
+
         def _deg_to_dm(angle):
             """Convert a latitude or longitude from degrees to degrees minutes format"""
             fraction_int_tuple = math.modf(angle)
@@ -392,6 +416,12 @@ class GPSDIfaceExtension(object):
         The Jackson Labs GPS modules have a pin to query GPS lock, which is a
         better option.
         """
+
+        # VPXE320
+        # NMEA messages are not available. Don't bother getting GPS info from GPSd.
+        self._log.info("VPXE320: NMEA messages are not available")
+        return {}
+
         if not self._initialized:
             self._log.warning("Cannot query GPS lock, GPSd not initialized!")
             return False
