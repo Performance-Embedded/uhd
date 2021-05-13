@@ -12,6 +12,9 @@ e3xx_e310_sg1_fpga_default      uhd-be53058       e3xx/uhd-be53058/e3xx_e310_sg1
 e3xx_e310_sg3_fpga_default      uhd-be53058       e3xx/uhd-be53058/e3xx_e310_sg3_fpga_default-gbe53058.zip             6a57ffa57dc29138185f6e9c208a886c15d62c9cd838d41cda9349f5d13c082d
 e3xx_e320_fpga_default          uhd-413ebee       e3xx/uhd-413ebee/e3xx_e320_fpga_default-g413ebee.zip                 296c8d86b0f5feb3b551c2c5f856e221cdf7288eeacd16c8e1c56c0bfa0b4934
 
+# VPX USRP
+usrp_vpx_fpga_default           uhd               usrp_vpx/usrp_vpx_fpga_default-uhd.zip                               3b35f50376679313daa2cbcf2372997a1ca6182794e5d4cfdc8352bac5c03750
+
 # E310 Filesystems
 e3xx_e310_sdk_default         meta-ettus-v4.0.0.0  e3xx/meta-ettus-v4.0.0.0/e3xx_e310_sdk_default-v4.0.0.0.zip       0
 e3xx_e310_sg1_mender_default  meta-ettus-v4.0.0.0  e3xx/meta-ettus-v4.0.0.0/e3xx_e310_sg1_mender_default-v4.0.0.0.zip    0
