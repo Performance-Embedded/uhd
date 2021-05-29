@@ -25,8 +25,8 @@ from usrp_mpm.sys_utils.udev import get_spidev_nodes
 from usrp_mpm.xports import XportMgrUDP
 from usrp_mpm.periph_manager.e320_periphs import MboardRegsControl
 
-E320_DEFAULT_INT_CLOCK_FREQ = 20e6
-E320_DEFAULT_EXT_CLOCK_FREQ = 10e6
+E320_DEFAULT_INT_CLOCK_FREQ = 100e6
+E320_DEFAULT_EXT_CLOCK_FREQ = 100e6
 E320_DEFAULT_CLOCK_SOURCE = 'internal'
 E320_DEFAULT_TIME_SOURCE = 'internal'
 E320_DEFAULT_ENABLE_GPS = True
@@ -462,7 +462,7 @@ class e320(ZynqComponents, PeriphManagerBase):
         Will throw if it's not a valid value.
         """
         # Other frequencies have not been tested
-        assert freq in (10e6, 20e6)
+        assert freq in (10e6, 20e6, 100e6)
         self.log.debug("We've been told the external reference clock " \
                        "frequency is {} MHz.".format(freq / 1e6))
         if self._ext_clock_freq == freq:
@@ -471,7 +471,8 @@ class e320(ZynqComponents, PeriphManagerBase):
                            "update command.")
             return
         self._ext_clock_freq = freq
-        if self.get_clock_source() == 'external':
+        # VPXE320: Allow change of external as well as internal clock frequency
+        if True:
             for slot, dboard in enumerate(self.dboards):
                 if hasattr(dboard, 'update_ref_clock_freq'):
                     self.log.trace(
