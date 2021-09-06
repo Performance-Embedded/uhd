@@ -353,3 +353,22 @@ class MboardRegsControl(MboardRegsCommon):
         else:
             self.log.trace("RX RF PLL locked")
         return locked
+
+    def mb_peek(self, addr):
+        """
+        Returns the 32-bit value starting at address addr as an integer
+        """
+        self.log.trace("peek addr = {}".format(addr))
+        with self.regs:
+            reg_val = self.peek32(addr)
+        return reg_val
+
+    def mb_poke(self, addr, val):
+        """
+        Writes the 32-bit value val to address starting at addr.
+        A value that exceeds 32 bits will be truncated to 32 bits.
+        """
+        self.log.trace("poke addr = {} val = {}".format(addr, val))
+        with self.regs:
+            ret_val = self.poke32(addr, val)
+        return ret_val

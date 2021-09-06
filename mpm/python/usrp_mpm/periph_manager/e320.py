@@ -778,3 +778,25 @@ class e320(ZynqComponents, PeriphManagerBase):
                 'freq': str(200e6),
             }
         ]
+
+    #######################################################################
+    # Peek/Poke
+    #######################################################################
+    def mb_peek(self, addr):
+        """
+        Returns the 32-bit value starting at address addr as an integer
+        """
+        self.log.trace("peek addr = {}".format(addr))
+        reg_val = self.mboard_regs_control.mb_peek(addr)
+        return {
+            'addr': hex(addr),
+            'val': hex(reg_val)
+        }        
+
+    def mb_poke(self, addr, val):
+        """
+        Writes the 32-bit value val to address starting at addr.
+        A value that exceeds 32 bits will be truncated to 32 bits.
+        """
+        self.log.trace("poke addr = {} val = {}".format(addr, val))
+        return self.mboard_regs_control.mb_poke(addr, val)        
