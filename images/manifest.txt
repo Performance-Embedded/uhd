@@ -13,7 +13,7 @@ e3xx_e310_sg3_fpga_default      uhd-be53058       e3xx/uhd-be53058/e3xx_e310_sg3
 e3xx_e320_fpga_default          uhd-413ebee       e3xx/uhd-413ebee/e3xx_e320_fpga_default-g413ebee.zip                 296c8d86b0f5feb3b551c2c5f856e221cdf7288eeacd16c8e1c56c0bfa0b4934
 
 # VPX USRP Version 6.7
-usrp_vpx_fpga_default           uhd               usrp_vpx/usrp_vpx_fpga_default-uhd.zip                               67f83fd03ce8a3de101cb3ff64076afa2c9bfd6ecfe128a465e51f680d118691
+usrp_vpx_fpga_default           uhd               usrp_vpx/usrp_vpx_fpga_default-uhd.zip                               21e70e3a3dbd6a47163e8ac1f1a26fb310e0bd1323d2703031afd34947157422
 
 # E310 Filesystems
 e3xx_e310_sdk_default         meta-ettus-v4.0.0.0  e3xx/meta-ettus-v4.0.0.0/e3xx_e310_sdk_default-v4.0.0.0.zip       0
